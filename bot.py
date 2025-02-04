@@ -7,7 +7,7 @@ import hashlib
 import os
 
 # تحديد مسار Tesseract OCR
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
 
 # إعدادات البوت
 TOKEN = "MTMwNTk5MDc1ODIwNTIzMTE2NQ.GeCWnO.CcjdxJhiZAhf-k4_di1nGVeU_U4FVUU_cbamog"
