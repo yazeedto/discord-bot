@@ -1,8 +1,0 @@
-[phases.setup]
-nixPkgs = ["python312", "tesseract", "libtesseract"]
-
-[phases.build]
-cmds = ["pip install -r requirements.txt"]
-
-[phases.start]
-cmd = "python bot.py"
