@@ -1,6 +1,6 @@
 [phases.setup]
 nixPk
-nixPkgs = ["tesseract", "glibc"]
+
 
 [phases.build]
 cmds = ["pip install -r requirements.txt"]
