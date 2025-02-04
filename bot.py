@@ -97,8 +97,12 @@ async def on_ready():
 
 @bot.event
 async def on_interaction(interaction: discord.Interaction):
-    if interaction.type == discord.InteractionType.component and interaction.data["custom_id"] == "apply_button":
-        await interaction.response.send_modal(VerificationForm())
+    if not interaction.response.is_done():
+        try:
+            await interaction.response.send_modal(VerificationForm())
+        except discord.NotFound:
+            print("❌ Interaction not found (error 10062), ignoring.")
+
 
 @bot.event
 async def on_message(message):
