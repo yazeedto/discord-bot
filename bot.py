@@ -7,7 +7,7 @@ import hashlib
 import os
 
 # تحديد مسار Tesseract OCR
-pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
 # إعدادات البوت
 TOKEN = "MTMwNTk5MDc1ODIwNTIzMTE2NQ.GeCWnO.CcjdxJhiZAhf-k4_di1nGVeU_U4FVUU_cbamog"
@@ -97,12 +97,8 @@ async def on_ready():
 
 @bot.event
 async def on_interaction(interaction: discord.Interaction):
-    if not interaction.response.is_done():
-        try:
-            await interaction.response.send_modal(VerificationForm())
-        except discord.NotFound:
-            print("❌ Interaction not found (error 10062), ignoring.")
-
+    if interaction.type == discord.InteractionType.component and interaction.data["custom_id"] == "apply_button":
+        await interaction.response.send_modal(VerificationForm())
 
 @bot.event
 async def on_message(message):
