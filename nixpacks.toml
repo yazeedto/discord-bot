@@ -1,5 +1,8 @@
 [phases.setup]
-aptPkgs = ["tesseract-ocr"]
+nixPkgs = ["tesseract", "glibc"]
 
 [phases.build]
 cmds = ["pip install -r requirements.txt"]
+
+[phases.start]
+cmd = "python bot.py"
